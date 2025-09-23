@@ -3,6 +3,7 @@
   import {ref} from "vue";
   import {Drawer as PvDrawer} from "primevue";
   import FooterContent from "./footer-content.vue";
+  import LanguageSwitcher from "./language-switcher.vue";
 
   const { t } = useI18n();
 
@@ -28,10 +29,11 @@
       </template>
       <template #end>
         <div class="flex-column mr-3">
-          <pv-button v-for="items in items" :key="item.label" as-child v-slot="slotProps">
+          <pv-button v-for="item in items" :key="item.label" as-child v-slot="slotProps">
             <router-link :to="item.to" :class="slotProps['class']">{{ t(item.label)}}</router-link>
           </pv-button>
         </div>
+        <language-switcher/>
       </template>
     </pv-toolbar>
     <pv-drawer v-model:visible="drawer"/>
@@ -58,6 +60,7 @@
 .footer {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   padding: 10px;
 }
