@@ -13,8 +13,8 @@ const { t } = useI18n();
         {{ t('authoring-phrase.intro')}} <i class="pi pi-heart"/>
         {{ t('authoring-phrase.use')}} <a href="https://primevue.org" target="_blank">PrimeVue</a>
         {{ t('authoring-phrase.author', {brand: 'ACME Studios'})}}
-      </a>
       </p>
+
     </div>
   </div>
 </template>
