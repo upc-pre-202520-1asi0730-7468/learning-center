@@ -9,10 +9,10 @@ import PrimeVue from 'primevue/config';
 import {
     Button,
     Card,
-    Checkbox,
+    Checkbox, Column,
     ConfirmationService,
     ConfirmDialog,
-    DataTable,
+    DataTable, Dialog,
     DialogService, Drawer, FileUpload, FloatLabel, IconField, InputIcon, InputNumber, InputText, Menu,
     Rating, Row, Select, SelectButton, Tag, Textarea, Toast,
     ToastService, Toolbar, Tooltip
