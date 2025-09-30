@@ -69,4 +69,66 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
 
-})
+    function addTutorial(tutorial) {
+        publishingApi.createTutorial(tutorial).then(response => {
+            const resource = response.data;
+            const newTutorial = TutorialAssembler.toEntityFromResource(resource);
+            tutorials.value.push(newTutorial);
+        }).catch(error => {
+            errors.value.push(error);
+        });
+    }
+
+    function updateTutorial(tutorial) {
+        publishingApi.updateTutorial(tutorial).then(response => {
+            const resource = response.data;
+            const updatedTutorial = TutorialAssembler.toEntityFromResource(resource);
+            const index = tutorials.value.findIndex(t => t["id"] === updatedTutorial.id);
+            if (index !== -1) tutorials.value[index] = updatedTutorial;
+        }).catch(error => {
+            errors.value.push(error);
+        });
+    }
+
+    function deleteTutorial(tutorial) {
+        publishingApi.deleteTutorial(tutorial.id).then(() => {
+            const index = tutorials.value.findIndex(t => t["id"] === tutorial.id);
+            if (index !== -1) tutorials.value.splice(index, 1);
+        }).catch(error => {
+            errors.value.push(error);
+        });
+    }
+
+    function getCategoryById(id) {
+        return categories.value.find(category => category["id"] === id);
+    }
+
+    function getTutorialById(id) {
+        return tutorials.value.find(tutorial => tutorial["id"] === id);
+    }
+
+    return {
+        // State
+        categories,
+        tutorials,
+        errors,
+        categoriesLoaded,
+        tutorialsLoaded,
+        // Getters
+        categoriesCount,
+        tutorialsCount,
+        // Actions
+        fetchCategories,
+        fetchTutorials,
+        addCategory,
+        updateCategory,
+        deleteCategory,
+        addTutorial,
+        updateTutorial,
+        deleteTutorial,
+        getCategoryById,
+        getTutorialById
+    }
+});
+
+export default usePublishingStore;
