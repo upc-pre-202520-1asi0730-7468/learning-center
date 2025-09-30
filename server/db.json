@@ -11,6 +11,42 @@
     {
       "id": 3,
       "name": "ASP.NET Core"
+    },
+    {
+      "id": 4,
+      "name": "CSharp"
+    }
+  ],
+  "tutorials": [
+    {
+      "id": 1,
+      "title": "Getting Started with Vue.js",
+      "summary": "Learn the basics of Vue.js and how to create your first application.",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Advanced Vue.js Techniques",
+      "summary": "Explore advanced concepts and techniques in Vue.js development.",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "title": "JavaScript ES6 Features",
+      "summary": "Understand the new features introduced in ES6 and how to use them.",
+      "categoryId": 2
+    },
+    {
+      "id": 4,
+      "title": "Building RESTful APIs with ASP.NET Core",
+      "summary": "Learn how to create RESTful APIs using ASP.NET Core framework.",
+      "categoryId": 3
+    },
+    {
+      "id": 5,
+      "title": "C# Programming Basics",
+      "summary": "Get started with C# programming language and its fundamental concepts.",
+      "categoryId": 4
     }
   ]
 }
