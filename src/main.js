@@ -18,6 +18,7 @@ import {
     ToastService, Toolbar, Tooltip
 } from "primevue";
 import router from "./router.js";
+import pinia from "./pinia.js";
 
 createApp(App)
     .use(i18n)
@@ -50,4 +51,5 @@ createApp(App)
     .component('pv-toast',          Toast)
     .directive('tooltip',           Tooltip)
     .use(router)
+    .use(pinia)
     .mount('#app')
