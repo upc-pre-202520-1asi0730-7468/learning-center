@@ -32,10 +32,9 @@ const navigateBack = () => {
 }
 
 onMounted(() => {
-  console.log(route.params.id);
   if (isEdit.value) {
-    const category = getCategoryById(route.params.id);
-    console.log(category);
+    let idNum = Number(route.params.id);
+    const category = getCategoryById(idNum);
     if (category) form.value.name = category.name; else navigateBack();
   }
 });
