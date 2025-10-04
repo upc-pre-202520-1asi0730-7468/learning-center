@@ -17,12 +17,13 @@ const isEdit = computed(() => !!route.params.id);
 onMounted(() => {
   if (!categories.length) fetchCategories();
   if (isEdit.value) {
-    const tutorial = getTutorialById(route.params.id);
+    let idNum = Number(route.params.id);
+    let tutorial = getTutorialById(idNum);
     if (tutorial) {
       form.value.title = tutorial.title;
       form.value.summary = tutorial.summary;
       form.value.categoryId = tutorial.categoryId;
-    } else router.push({name: 'publishing-tutorials'});
+    } else navigateBack();
   }
 });
 
