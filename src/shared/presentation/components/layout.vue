@@ -4,6 +4,7 @@
   import {Drawer as PvDrawer} from "primevue";
   import FooterContent from "./footer-content.vue";
   import LanguageSwitcher from "./language-switcher.vue";
+  import AuthenticationSection from "../../../iam/presentation/components/authentication-section.vue";
 
   const { t } = useI18n();
 
@@ -35,6 +36,7 @@
             <router-link :to="item.to" :class="slotProps['class']">{{ t(item.label)}}</router-link>
           </pv-button>
         </div>
+        <authentication-section/>
         <language-switcher/>
       </template>
     </pv-toolbar>
