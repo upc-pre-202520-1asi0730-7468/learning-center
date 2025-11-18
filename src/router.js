@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import Home from "./shared/presentation/views/home.vue";
 import publishingRoutes from './publishing/presentation/publishing-routes.js';
 import iamRoutes from './iam/presentation/iam-routes.js';
+import {authenticationGuard} from "./iam/infrastructure/authentication.guard.js";
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
@@ -25,7 +26,8 @@ router.beforeEach((to, from, next) => {
     console.log(`Navigating from ${from.name} to ${to.name}`);
     let baseTitle = 'ACME Learning Center';
     document.title = to.meta.title ? `${to.meta.title} | ${baseTitle}` : baseTitle;
-    next();
+    // Call authentication guard
+    authenticationGuard(to, from, next);
 });
 
 export default router;
