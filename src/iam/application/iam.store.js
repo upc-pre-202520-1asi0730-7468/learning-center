@@ -79,4 +79,19 @@ const useIamStore = defineStore('iam', () => {
         console.log(`User signed out successfully.`);
         router.push({name: 'iam-sign-in'});
     }
-})
+
+    return {
+        users,
+        errors,
+        usersLoaded,
+        isSignedIn,
+        currentUsername,
+        currentUserId,
+        currentToken,
+        signIn,
+        signUp,
+        signOut
+    };
+});
+
+export default useIamStore;
